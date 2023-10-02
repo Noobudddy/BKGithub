@@ -5,7 +5,7 @@ public class GrapplingGun : MonoBehaviour {
     private LineRenderer lr;
     private Vector3 grapplePoint;
     public LayerMask whatIsGrappleable;
-    public Transform gunTip, camera, player;
+    public Transform grappleTip, camera, player;
     float maxDistance = 500f;
     private SpringJoint joint;
 
@@ -50,7 +50,7 @@ public class GrapplingGun : MonoBehaviour {
             joint.massScale = 4.5f;
 
             lr.positionCount = 2;
-            currentGrapplePosition = gunTip.position;
+            currentGrapplePosition = grappleTip.position;
         }
     }
 
@@ -71,7 +71,7 @@ public class GrapplingGun : MonoBehaviour {
 
         currentGrapplePosition = Vector3.Lerp(currentGrapplePosition, grapplePoint, Time.deltaTime * 8f);
         
-        lr.SetPosition(0, gunTip.position);
+        lr.SetPosition(0, grappleTip.position);
         lr.SetPosition(1, currentGrapplePosition);
     }
 
