@@ -1,16 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerCam : MonoBehaviour
 {
     public float sensX;
     public float sensY;
+    public float multiplier;
 
     public Transform orientation;
+    public Transform camHolder;
 
     float xRotation;
     float yRotation;
+
+    [Header("Fov")]
+    public bool useFluentFov;
+    public PlayerMovement pm;
+    public Rigidbody rb;
+    public Camera cam;
+    public float minMovementSpeed;
+    public float maxMovementSpeed;
+    public float minFov;
+    public float maxFov;
 
     private void Start()
     {
@@ -32,5 +45,35 @@ public class PlayerCam : MonoBehaviour
         //rotate cam and orientation
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+
+        if (useFluentFov) HandleFov();
+    }
+
+    private void HandleFov()
+    {
+        float moveSpeedDif = maxMovementSpeed - minMovementSpeed;
+        float fovDif = maxFov - minFov;
+
+        float rbFlatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z).magnitude;
+        float currMoveSpeedOvershoot = rbFlatVel - minMovementSpeed;
+        float currMoveSpeedProgress = currMoveSpeedOvershoot / moveSpeedDif;
+
+        float fov = (currMoveSpeedProgress * fovDif) + minFov;
+
+        float currFov = cam.fieldOfView;
+
+        float lerpedFov = Mathf.Lerp(fov, currFov, Time.deltaTime * 200);
+
+        cam.fieldOfView = lerpedFov;
+    }
+
+    public void DoFov(float endValue)
+    {
+        GetComponent<Camera>().DOFieldOfView(endValue, 0.25f);
+    }
+
+    public void DoTilt(float zTilt)
+    {
+        transform.DOLocalRotate(new Vector3(0, 0, zTilt), 0.25f);
     }
 }

@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float walkSpeed;
     public float sprintSpeed;
     public float slideSpeed;
+    public float swingSpeed;
 
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
@@ -45,6 +46,10 @@ public class PlayerMovement : MonoBehaviour
     private RaycastHit slopeHit;
     private bool exitingSlope;
 
+    [Header("Camera Effects")]
+    public PlayerCam cam;
+    public float grappleFov = 95f;
+
     public Transform orientation;
 
     float horizontalInput;
@@ -60,6 +65,8 @@ public class PlayerMovement : MonoBehaviour
         freeze,
         walking, 
         sprinting, 
+        grappling,
+        swinging,
         crouching,
         sliding,
         air,
@@ -68,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
     public bool freeze;
 
     public bool activeGrapple;
+    public bool swinging;
 
     public bool sliding;
 
@@ -151,7 +159,21 @@ public class PlayerMovement : MonoBehaviour
             else
                 desiredMoveSpeed = sprintSpeed;
         }
-        
+
+        //Mode - grappling
+        else if (activeGrapple)
+        {
+            state = MovementState.grappling;
+            moveSpeed = sprintSpeed;
+        }
+
+        //Mode - swinging
+        else if (swinging)
+        {
+            state = MovementState.swinging;
+            moveSpeed = swingSpeed;
+        }
+
         //Mode - crouching
         else if (Input.GetKey(crouchKey))
         {
@@ -221,6 +243,7 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
         if (activeGrapple) return;
+        if (swinging) return;
 
         //calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
@@ -304,11 +327,13 @@ public class PlayerMovement : MonoBehaviour
     {
         enableMovementOnNextTouch = true;
         rb.velocity = velocityToSet;
+        cam.DoFov(grappleFov);
     }
 
     public void ResetRestriction()
     {
         activeGrapple = false;
+        cam.DoFov(85f);
     }
 
     private void OnCollisionEnter(Collision collision)
