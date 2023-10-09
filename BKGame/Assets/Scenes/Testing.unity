@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 6626968}
   - component: {fileID: 6626967}
   - component: {fileID: 6626966}
+  - component: {fileID: 6626971}
   - component: {fileID: 6626970}
   m_Layer: 0
   m_Name: Melee Enemy
@@ -225,8 +226,8 @@ Transform:
   m_GameObject: {fileID: 6626965}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 10}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -240,11 +241,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 6626965}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a5174399196b4bf28796d61a383f139, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d4ca9059bd8f4f99927d0ef9ce5c28d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
-  attack: 5
+  agent: {fileID: 6626971}
+  player: {fileID: 450417346}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 64
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 512
+  health: 100
+  walkPoint: {x: 0, y: 0, z: 0}
+  walkPointRange: 5
+  timeBetweenAttacks: 1
+  projectile: {fileID: 0}
+  sightRange: 20
+  attackRange: 5
+  playerInSightRange: 0
+  playerInAttackRange: 0
+--- !u!195 &6626971
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6626965}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &11076046
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +297,7 @@ GameObject:
   - component: {fileID: 11076049}
   - component: {fileID: 11076048}
   - component: {fileID: 11076047}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: hard sky cubes (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3208,8 +3246,7 @@ GameObject:
   - component: {fileID: 450417356}
   - component: {fileID: 450417354}
   - component: {fileID: 450417355}
-  - component: {fileID: 450417357}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3525,20 +3562,6 @@ MonoBehaviour:
   extendCableSpeed: 20
   predictionPoint: {fileID: 1307898093}
   predictionSphereCastRadius: 3
---- !u!114 &450417357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450417345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a5174399196b4bf28796d61a383f139, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  attack: 10
 --- !u!43 &456855326
 Mesh:
   m_ObjectHideFlags: 0
@@ -3716,7 +3739,7 @@ GameObject:
   - component: {fileID: 458883786}
   - component: {fileID: 458883785}
   - component: {fileID: 458883784}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayerObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4531,7 +4554,7 @@ GameObject:
   - component: {fileID: 549856997}
   - component: {fileID: 549856996}
   - component: {fileID: 549856995}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: shallow slope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6828,7 +6851,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 724366752}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CameraPos
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -8306,7 +8329,7 @@ GameObject:
   - component: {fileID: 950509940}
   - component: {fileID: 950509939}
   - component: {fileID: 950509938}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: crouch thing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8737,7 +8760,7 @@ GameObject:
   - component: {fileID: 1023494614}
   - component: {fileID: 1023494613}
   - component: {fileID: 1023494612}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: jump thing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11159,7 +11182,7 @@ GameObject:
   - component: {fileID: 1211211836}
   - component: {fileID: 1211211835}
   - component: {fileID: 1211211834}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: left stairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14061,7 +14084,7 @@ GameObject:
   - component: {fileID: 1326559616}
   - component: {fileID: 1326559615}
   - component: {fileID: 1326559614}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15099,7 +15122,7 @@ GameObject:
   - component: {fileID: 1553581904}
   - component: {fileID: 1553581903}
   - component: {fileID: 1553581902}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: double slope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16104,7 +16127,7 @@ GameObject:
   - component: {fileID: 1589952245}
   - component: {fileID: 1589952244}
   - component: {fileID: 1589952250}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16479,7 +16502,7 @@ GameObject:
   - component: {fileID: 1591382249}
   - component: {fileID: 1591382248}
   - component: {fileID: 1591382254}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16839,6 +16862,69 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.97381, y: 3.503674, z: 4.1993275}
   m_Center: {x: 1.4869047, y: 1.751837, z: -2.0996637}
+--- !u!1 &1594110835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1594110837}
+  - component: {fileID: 1594110836}
+  m_Layer: 0
+  m_Name: NavMesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1594110836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594110835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 050f79e6318e740fca0d4d187f1ebe48, type: 2}
+  m_BuildHeightMesh: 0
+--- !u!4 &1594110837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594110835}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.8695736, y: 8.004351, z: -2.732905}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1614542503
 GameObject:
   m_ObjectHideFlags: 0
@@ -16848,7 +16934,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1614542504}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Orientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17378,7 +17464,7 @@ GameObject:
   - component: {fileID: 1712761458}
   - component: {fileID: 1712761457}
   - component: {fileID: 1712761456}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17896,7 +17982,7 @@ GameObject:
   - component: {fileID: 1783870550}
   - component: {fileID: 1783870549}
   - component: {fileID: 1783870548}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: right stairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19893,7 +19979,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1913755852}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Testing movement stuff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20304,7 +20390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2009222499}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: slope thing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21026,7 +21112,7 @@ GameObject:
   - component: {fileID: 2104999540}
   - component: {fileID: 2104999539}
   - component: {fileID: 2104999538}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21381,7 +21467,7 @@ GameObject:
   - component: {fileID: 2116608923}
   - component: {fileID: 2116608922}
   - component: {fileID: 2116608921}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: steep slope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22162,3 +22248,4 @@ SceneRoots:
   - {fileID: 1296098766}
   - {fileID: 1307898093}
   - {fileID: 6626969}
+  - {fileID: 1594110837}
