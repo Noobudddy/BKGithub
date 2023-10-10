@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAiMelee : MonoBehaviour
+public class EnemyAi : MonoBehaviour
 {
     public NavMeshAgent agent;
 
@@ -21,7 +21,6 @@ public class EnemyAiMelee : MonoBehaviour
     //Attacking
     public float timeBetweenAttacks;
     bool alreadyAttacked;
-    public GameObject projectile;
 
     //States
     public float sightRange, attackRange;
