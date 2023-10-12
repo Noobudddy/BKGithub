@@ -6,6 +6,7 @@ public class MeleeController : MonoBehaviour
 {
     public GameObject Bat;
     public bool CanAttack = true;
+    public int damage;
     public float AttackCooldown = 1.0f;
     public AudioClip BatAttackSound;
     public bool isAttacking = false;

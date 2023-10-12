@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 6626966}
   - component: {fileID: 6626971}
   - component: {fileID: 6626970}
+  - component: {fileID: 6626974}
   - component: {fileID: 6626973}
   - component: {fileID: 6626972}
   m_Layer: 0
@@ -318,6 +319,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6626974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6626965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a489f8f44a168a7498e828490b78514c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 0
+  isDead: 0
+  damage: 0
+  attackSpeed: 0
+  canAttack: 0
 --- !u!1 &11076046
 GameObject:
   m_ObjectHideFlags: 0
@@ -3281,6 +3300,7 @@ GameObject:
   - component: {fileID: 450417353}
   - component: {fileID: 450417356}
   - component: {fileID: 450417354}
+  - component: {fileID: 450417357}
   - component: {fileID: 450417355}
   m_Layer: 9
   m_Name: Player
@@ -3598,6 +3618,21 @@ MonoBehaviour:
   extendCableSpeed: 20
   predictionPoint: {fileID: 1307898093}
   predictionSphereCastRadius: 3
+--- !u!114 &450417357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450417345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dea3498c6ed43e49a4320a2771e5668, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
+  isDead: 0
 --- !u!43 &456855326
 Mesh:
   m_ObjectHideFlags: 0
@@ -7122,6 +7157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bat: {fileID: 4430699144098577814}
   CanAttack: 1
+  damage: 10
   AttackCooldown: 0.75
   BatAttackSound: {fileID: 8300000, guid: 8d01ba741c78a8d429ff2e731eecbd7e, type: 3}
   isAttacking: 0
