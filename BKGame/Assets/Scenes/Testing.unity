@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4465788, g: 0.49641263, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -246,22 +246,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4ca9059bd8f4f99927d0ef9ce5c28d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 6626971}
   player: {fileID: 450417346}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 704
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 256
-  health: 100
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 5
-  timeBetweenAttacks: 1
-  sightRange: 50
-  attackRange: 5
-  playerInSightRange: 0
-  playerInAttackRange: 0
+  stoppingDistance: 3
 --- !u!195 &6626971
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -273,10 +259,10 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.25
   m_Speed: 15
-  m_Acceleration: 8
+  m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

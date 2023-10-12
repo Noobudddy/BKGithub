@@ -1,3 +1,4 @@
+using Mono.CSharp;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,114 +6,76 @@ using UnityEngine.AI;
 
 public class EnemyAi : MonoBehaviour
 {
-    public NavMeshAgent agent;
+    private NavMeshAgent agent = null;
+    //private Animator anim = null;
+    private EnemyMeleeStats stats = null;
+    private float timeOfLastAttack = 0;
+    private bool hasStopped = false;
+    [SerializeField] private Transform player;
+    [SerializeField] private float stoppingDistance; 
 
-    public Transform player;
-
-    public LayerMask whatIsGround, whatIsPlayer;
-
-    public float health;
-
-    //Patrolling
-    public Vector3 walkPoint;
-    bool walkPointSet;
-    public float walkPointRange;
-
-    //Attacking
-    public float timeBetweenAttacks;
-    bool alreadyAttacked;
-
-    //States
-    public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
-
-    private void Awake()
+    private void Start()
     {
-        player = GameObject.Find("PlayerObj").transform;
-        agent = GetComponent <NavMeshAgent>();
+        GetReferences();
     }
 
     private void Update()
     {
-        //Check for sight and attack range
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-
-        if (!playerInSightRange && !playerInAttackRange) Patroling();
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInSightRange && playerInAttackRange) AttackPlayer();
+        MoveToPlayer();
     }
 
-    private void Patroling()
-    {
-        if (!walkPointSet) SearchWalkPoint();
-
-        if (walkPointSet)
-            agent.SetDestination(walkPoint);
-
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
-        //Walkpoint reached
-        if (distanceToWalkPoint.magnitude < 1f)
-            walkPointSet = false;
-    }
-
-    private void SearchWalkPoint()
-    {
-        //Calculate random point in range
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
-            walkPointSet = true;
-    }
-
-    private void ChasePlayer()
+    private void MoveToPlayer()
     {
         agent.SetDestination(player.position);
-    }
+        //anim.SetFloat("Speed", 1f, 0.3f, Time.deltaTime);
+        RotateToPlayer();
+        
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-    private void AttackPlayer()
-    {
-        //Make sure enemy doesn't move
-        agent.SetDestination(transform.position);
-
-        transform.LookAt(player);
-
-        if (!alreadyAttacked)
+        if(distanceToPlayer <= agent.stoppingDistance)
         {
+            agent.SetDestination(transform.position);
+            //anim.SetFloat("Speed", 0f);
             //Attack
-            
-
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            if (!hasStopped)
+            {
+                hasStopped = true;
+                timeOfLastAttack = Time.time;
+            }
+ 
+            if (Time.time >= timeOfLastAttack + stats.attackSpeed)
+            {
+                timeOfLastAttack = Time.time;
+                PlayerStats playerStats = player.GetComponent<PlayerStats>();
+                AttackPlayer(playerStats);
+            }
+        }
+        else
+        {
+            if (hasStopped)
+            {
+                hasStopped= false;
+            }
         }
     }
-
-    private void ResetAttack()
+    
+    private void RotateToPlayer()
     {
-        alreadyAttacked = false;
+        Vector3 direction = player.position - transform.position;
+        Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
+        transform.rotation = rotation;
     }
 
-    public void TakeDamage(int damage)
+    private void AttackPlayer(PlayerStats statsToDamage)
     {
-        health -= damage;
-
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+        //anim.SetTrigger("Attack");
+        stats.DealDamage(statsToDamage);
     }
 
-    public void DestroyEnemy()
+    private void GetReferences()
     {
-        Destroy(gameObject);
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.black;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, sightRange);
+        agent = GetComponent<NavMeshAgent>();
+        //anim = GetComponentInChildren<Animator>();
+        stats = GetComponent<EnemyMeleeStats>();
     }
 }
