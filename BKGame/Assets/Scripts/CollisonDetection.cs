@@ -7,15 +7,29 @@ public class CollisonDetection : MonoBehaviour
     public MeleeController mc;
     //public GameObject HitParticle;
 
-    private void OnTriggerEnter(Collider enemy)
+    private void OnTriggerEnter(Collider other)
     {
-        if (enemy.tag == "Enemy" && mc.isAttacking)
+        if (other.CompareTag("Enemy") && mc.isAttacking)
         {
-            Debug.Log(enemy.name);
-            enemy.GetComponent<Animator>().SetTrigger("Hit");
-            //Instantiate(HitParticle, new Vector3(other.transform.position.x, transform.position.y, other.transform.position.z),other.transform.rotation);
-            PlayerStats enemyStats = transform.GetComponent<PlayerStats>();
-            enemyStats.TakeDamage(mc.damage);
+            Animator enemyAnimator = other.GetComponent<Animator>();
+            if (enemyAnimator != null)
+            {
+                enemyAnimator.SetTrigger("Hit");
+            }
+            else
+            {
+                Debug.LogWarning("Enemy does not have an Animator component.");
+            }
+
+            PlayerStats enemyStats = other.GetComponent<PlayerStats>();
+            if (enemyStats != null)
+            {
+                enemyStats.TakeDamage(mc.damage);
+            }
+            else
+            {
+                Debug.LogWarning("Enemy does not have a PlayerStats component.");
+            }
         }
     }
 
