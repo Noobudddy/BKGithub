@@ -3,23 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Enemy
-  - Fireball
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - MainCamera
   - Water
   - UI
-  - ground
-  - grapple
-  - wall
-  - player
-  - post processing
-  - 
-  - 
+  - Ground
+  - Grapple
+  - Wall
+  - Player
+  - Post Processing
+  - Fireball
+  - Enemy
   - 
   - 
   - 

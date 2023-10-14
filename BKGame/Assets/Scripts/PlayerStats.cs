@@ -40,7 +40,7 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        int healthAfterDamage = health -damage;
+        int healthAfterDamage = health - damage;
         SetHealthTo(healthAfterDamage);
     }
 

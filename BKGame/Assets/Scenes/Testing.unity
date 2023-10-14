@@ -140,9 +140,9 @@ GameObject:
   - component: {fileID: 6626974}
   - component: {fileID: 6626973}
   - component: {fileID: 6626972}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Melee Enemy
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2525,7 +2525,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 240916579}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Fireball Holder
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3759,13 +3759,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 89569863}
-  projectile: {fileID: 2534644637695395129, guid: 8f755d2acbab920458dce8f1b564bad0, type: 3}
+  projectile: {fileID: 4483904140237418793, guid: 8f755d2acbab920458dce8f1b564bad0, type: 3}
   firePoint: {fileID: 2098527358}
   CanAttack: 1
   isAttacking: 0
   damage: 30
-  projectileSpeed: 60
-  fireballCooldown: 1.5
+  projectileSpeed: 45
+  fireballCooldown: 1.25
 --- !u!43 &456855326
 Mesh:
   m_ObjectHideFlags: 0
@@ -7253,13 +7253,13 @@ GameObject:
   - component: {fileID: 750037286}
   - component: {fileID: 750037287}
   - component: {fileID: 750037288}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Weapon Holder
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &750037286
 Transform:
   m_ObjectHideFlags: 0
@@ -8003,7 +8003,7 @@ GameObject:
   - component: {fileID: 907582914}
   - component: {fileID: 907582913}
   - component: {fileID: 907582912}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Grapple Hook
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -8212,7 +8212,7 @@ GameObject:
   - component: {fileID: 941399263}
   - component: {fileID: 941399266}
   - component: {fileID: 941399265}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Hand
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -8255,7 +8255,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 74eb1d5188e7240cfbdcf9394537c70a, type: 2}
+  - {fileID: 2100000, guid: 21c0cd77fd02a462ebf4778c5fbfe19c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13676,7 +13676,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1226452726}
   - component: {fileID: 1226452727}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CameraHolder
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -17401,7 +17401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1628107141}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GrappleTip
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -21543,7 +21543,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2098527358}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Fire Point
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -22779,7 +22779,7 @@ GameObject:
   - component: {fileID: 4430699144098577815}
   - component: {fileID: 4430699144098577816}
   - component: {fileID: 4430699144098577817}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -22843,6 +22843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mc: {fileID: 750037287}
+  fb: {fileID: 450417358}
 --- !u!4 &4487526947649361524
 Transform:
   m_ObjectHideFlags: 0
@@ -22869,7 +22870,7 @@ GameObject:
   - component: {fileID: 4487526947649361524}
   - component: {fileID: 1626303763251736382}
   - component: {fileID: 2861035388127087530}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}

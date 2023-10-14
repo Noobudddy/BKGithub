@@ -10,39 +10,45 @@ public class Fireball : MonoBehaviour
     public bool CanAttack = true;
     public bool isAttacking = false;
     public int damage;
-    public float projectileSpeed = 30;
+    public float projectileSpeed = 45;
     public float fireballCooldown = 2.0f;
 
     private Vector3 destination;
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire2"))
         {
-            ShootProjectile();
+            if (CanAttack)
+            {
+                ShootProjectile();
+            }
         }
     }
 
-    void ShootProjectile()
+    private void ShootProjectile()
     {
-        if (CanAttack)
+
+        isAttacking = true; 
+        CanAttack = false;
+        Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+            destination = hit.point;
+        else
+            destination = ray.GetPoint(1000);
+
+        if (isAttacking)
         {
-            CanAttack = false;
-            isAttacking = true;
-            Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
-                destination = hit.point;
-            else
-                destination = ray.GetPoint(1000);
-
-            InstantiateProjectile(firePoint);
-            StartCoroutine(ResetAttackCooldown());
+            Debug.Log("Fireball is attacking");
         }
+
+        InstantiateProjectile(firePoint);
+        StartCoroutine(ResetAttackCooldown());
     }
 
-    void InstantiateProjectile(Transform firePoint)
+    private void InstantiateProjectile(Transform firePoint)
     {
         var projectileObj = Instantiate(projectile, firePoint.position, Quaternion.identity) as GameObject;
         projectileObj.GetComponent<Rigidbody>().velocity = (destination - firePoint.position).normalized * projectileSpeed;
@@ -56,7 +62,7 @@ public class Fireball : MonoBehaviour
 
     IEnumerator ResetAttackBool()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2.0f);
         isAttacking = false;
     }
 }

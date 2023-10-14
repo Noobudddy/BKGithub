@@ -16,6 +16,7 @@ public class EnemyMeleeStats : PlayerStats
 
     public void DealDamage(PlayerStats statsToDamage)
     {
+        Debug.Log("Enemy was damaged");
         statsToDamage.TakeDamage(damage);
     }
 
@@ -27,7 +28,7 @@ public class EnemyMeleeStats : PlayerStats
 
     public override void InitVariables()
     {
-        maxHealth = 20;
+        maxHealth = 100;
         SetHealthTo(maxHealth);
         isDead = false;
 
