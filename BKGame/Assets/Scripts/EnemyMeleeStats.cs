@@ -32,6 +32,5 @@ public class EnemyMeleeStats : PlayerStats
 
         damage = 10;
         attackSpeed = 1.5f;
-        canAttack = true;
     }
 }
