@@ -44,7 +44,7 @@ public class CollisonDetection : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Enemy does not have a PlayerStats component.");
+            Debug.LogWarning("Enemy does not have a EnemyMeleeStats component.");
         }
     }
 
