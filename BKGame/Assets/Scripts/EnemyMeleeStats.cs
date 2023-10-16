@@ -16,7 +16,7 @@ public class EnemyMeleeStats : PlayerStats
 
     public void DealDamage(PlayerStats statsToDamage)
     {
-        Debug.Log("Enemy was damaged");
+        Debug.Log("Player was damaged");
         statsToDamage.TakeDamage(damage);
     }
 
