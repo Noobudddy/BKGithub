@@ -7,8 +7,6 @@ public class EnemyMeleeStats : PlayerStats
     [SerializeField] private int damage;
     [SerializeField] public float attackSpeed;
 
-    [SerializeField] private bool canAttack;
-
     private void Start()
     {
         InitVariables();
