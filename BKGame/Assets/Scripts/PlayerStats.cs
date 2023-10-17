@@ -38,7 +38,7 @@ public class PlayerStats : MonoBehaviour
         CheckHealth();
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         int healthAfterDamage = health - damage;
         SetHealthTo(healthAfterDamage);

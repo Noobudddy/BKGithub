@@ -12,7 +12,7 @@ public class EquippingScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Equip0();
     }
 
     // Update is called once per frame
@@ -32,6 +32,13 @@ public class EquippingScript : MonoBehaviour
         {
             Equip3();
         }
+    }
+
+    void Equip0()
+    {
+        Slot1.SetActive(false);
+        Slot2.SetActive(false);
+        Slot3.SetActive(false);
     }
 
     void Equip1()

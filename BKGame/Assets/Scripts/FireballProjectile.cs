@@ -9,8 +9,10 @@ public class FireballProjectile : MonoBehaviour
     private int fireballLayer;
     private int playerLayer;
     private int mainCameraLayer;
+    private int enemyLayer;
 
     public GameObject fireballExplosion;
+    public Fireball fb;
 
     private void Awake()
     {
@@ -18,6 +20,7 @@ public class FireballProjectile : MonoBehaviour
         fireballLayer = LayerMask.NameToLayer("Fireball");
         playerLayer = LayerMask.NameToLayer("Player");
         mainCameraLayer = LayerMask.NameToLayer("MainCamera");
+        enemyLayer = LayerMask.NameToLayer("Enemy");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -52,6 +55,19 @@ public class FireballProjectile : MonoBehaviour
             Destroy(explosion, 2);
 
             Destroy(gameObject);
+        }
+
+        if (collision.gameObject.layer == enemyLayer)
+        {
+            if (collision.gameObject.TryGetComponent<EnemyMeleeStats>(out EnemyMeleeStats enemyComponent))
+            {
+                if (enemyComponent != null && fb.isAttacking)
+                {
+                    Debug.Log("Fireball damaged enemy!");
+                    Debug.Log("Damage: " + fb.damage);
+                    enemyComponent.TakeDamage(fb.damage);
+                }
+            }
         }
     }
 }

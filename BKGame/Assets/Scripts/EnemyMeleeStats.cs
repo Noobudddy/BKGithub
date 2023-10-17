@@ -2,14 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMeleeStats : PlayerStats
+public class EnemyMeleeStats : MonoBehaviour
 {
+    [SerializeField] protected int health;
+    [SerializeField] protected int maxHealth;
     [SerializeField] private int damage;
     [SerializeField] public float attackSpeed;
+
+    [SerializeField] protected bool isDead;
 
     private void Start()
     {
         InitVariables();
+    }
+
+    public virtual void CheckHealth()
+    {
+        if (health <= 0)
+        {
+            health = 0;
+            Die();
+        }
+        if (health >= maxHealth)
+        {
+            health = maxHealth;
+        }
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
+
+    public void SetHealthTo(int healthToSetTo)
+    {
+        health = healthToSetTo;
+        CheckHealth();
+    }
+
+    public void TakeDamage(int damage)
+    {
+        int healthAfterDamage = health - damage;
+        SetHealthTo(healthAfterDamage);
     }
 
     public void DealDamage(PlayerStats statsToDamage)
@@ -18,13 +52,13 @@ public class EnemyMeleeStats : PlayerStats
         statsToDamage.TakeDamage(damage);
     }
 
-    public override void Die()
+    public void Heal(int heal)
     {
-        base.Die();
-        Destroy(gameObject);
+        int healthAfterHeal = health + heal;
+        SetHealthTo(healthAfterHeal);
     }
 
-    public override void InitVariables()
+    public void InitVariables()
     {
         maxHealth = 100;
         SetHealthTo(maxHealth);

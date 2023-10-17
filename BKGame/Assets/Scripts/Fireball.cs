@@ -7,6 +7,7 @@ public class Fireball : MonoBehaviour
     public Camera cam;
     public GameObject projectile;
     public Transform firePoint;
+    public Fireball fb;
     public bool CanAttack = true;
     public bool isAttacking = false;
     public int damage;
@@ -28,7 +29,6 @@ public class Fireball : MonoBehaviour
 
     private void ShootProjectile()
     {
-
         isAttacking = true; 
         CanAttack = false;
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
@@ -39,17 +39,18 @@ public class Fireball : MonoBehaviour
         else
             destination = ray.GetPoint(1000);
 
-        if (isAttacking)
-        {
-            Debug.Log("Fireball is attacking");
-        }
-
         InstantiateProjectile(firePoint);
         StartCoroutine(ResetAttackCooldown());
     }
 
     private void InstantiateProjectile(Transform firePoint)
     {
+        if (isAttacking)
+        {
+            Debug.Log("Fireball is attacking");
+            Debug.Log("Fireball damaged enemy with " + fb.damage + " damage!");
+        }
+
         var projectileObj = Instantiate(projectile, firePoint.position, Quaternion.identity) as GameObject;
         projectileObj.GetComponent<Rigidbody>().velocity = (destination - firePoint.position).normalized * projectileSpeed;
     }
