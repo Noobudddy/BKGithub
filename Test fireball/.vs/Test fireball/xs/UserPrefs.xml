@@ -1,0 +1,22 @@
+﻿<Properties StartupConfiguration="{60856ED5-3C39-7F33-AF03-F67C381F8664}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Fireball Particle.cs">
+    <Files>
+      <File FileName="Assets/Fireball Particle.cs" Line="34" Column="1" />
+      <File FileName="Assets/Enemy.cs" Line="14" Column="33" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Test fireball" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="960ac38c-4805-478a-912c-ead1d80257e5" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

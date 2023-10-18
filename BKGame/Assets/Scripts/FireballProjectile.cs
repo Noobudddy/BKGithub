@@ -13,6 +13,13 @@ public class FireballProjectile : MonoBehaviour
 
     public GameObject fireballExplosion;
     public Fireball fb;
+    public Rigidbody firerb;
+    public float speed;
+
+    private void Update()
+    {
+        firerb.AddForce(transform.forward * speed);
+    }
 
     private void Awake()
     {
