@@ -10,9 +10,9 @@ public class FireballProjectile : MonoBehaviour
     private int playerLayer;
     private int mainCameraLayer;
     private int enemyLayer;
+    private Fireball fb;
 
     public GameObject fireballExplosion;
-    public Fireball fb;
     public Rigidbody firerb;
     public float speed;
 
@@ -30,51 +30,35 @@ public class FireballProjectile : MonoBehaviour
         enemyLayer = LayerMask.NameToLayer("Enemy");
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        int otherLayer = other.gameObject.layer;
+        int otherLayer = collision.gameObject.layer;
 
         if (otherLayer == fireballLayer || otherLayer == playerLayer || otherLayer == mainCameraLayer || collided)
         {
             return;
         }
 
-        collided = true;
+        if (collision.gameObject.TryGetComponent<EnemyMeleeStats>(out EnemyMeleeStats enemyComponent))
+        {
+            Debug.Log("Fireball damaged enemy!");
+            enemyComponent.TakeDamage(fb.damage);
+        }
 
-        var explosion = Instantiate(fireballExplosion, other.transform.position, Quaternion.identity) as GameObject;
-        Destroy(explosion, 2);
+        if (fireballExplosion != null)
+        {
+            var explosion = Instantiate(fireballExplosion, collision.transform.position, Quaternion.identity) as GameObject;
+            Destroy(explosion, 2);
+        }
 
         Debug.Log("Fireball hit");
 
-        Destroy(gameObject);
-    }
+        collided = true;
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        int otherLayer = collision.gameObject.layer;
-
-        if (otherLayer != fireballLayer && otherLayer != playerLayer && otherLayer != mainCameraLayer && !collided)
+        if (collided)
         {
-            collided = true;
-
-            var explosion = Instantiate(fireballExplosion, collision.contacts[0].point, Quaternion.identity) as GameObject;
-
-            Destroy(explosion, 2);
-
+            collided = false;
             Destroy(gameObject);
-        }
-
-        if (collision.gameObject.layer == enemyLayer)
-        {
-            if (collision.gameObject.TryGetComponent<EnemyMeleeStats>(out EnemyMeleeStats enemyComponent))
-            {
-                if (enemyComponent != null && fb.isAttacking)
-                {
-                    Debug.Log("Fireball damaged enemy!");
-                    Debug.Log("Damage: " + fb.damage);
-                    enemyComponent.TakeDamage(fb.damage);
-                }
-            }
         }
     }
 }
