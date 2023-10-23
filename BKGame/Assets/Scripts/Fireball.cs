@@ -7,10 +7,9 @@ public class Fireball : MonoBehaviour
     public Camera cam;
     public GameObject projectile;
     public Transform firePoint;
-    public Fireball fb;
+    public FireballProjectile fb;
     public bool CanAttack = true;
     public bool isAttacking = false;
-    public int damage;
     public float projectileSpeed = 45;
     public float fireballCooldown = 2.0f;
 

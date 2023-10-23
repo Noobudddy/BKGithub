@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMeleeStats : MonoBehaviour
 {
-    [SerializeField] protected int health;
+    [SerializeField] public int health;
     [SerializeField] protected int maxHealth;
     [SerializeField] private int damage;
     [SerializeField] public float attackSpeed;

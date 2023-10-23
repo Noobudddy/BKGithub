@@ -38,10 +38,6 @@ public class CollisonDetection : MonoBehaviour
                     enemyStats.TakeDamage(mc.damage);
                 }
             }
-        }   
-        else
-        {
-            Debug.LogWarning("Enemy does not have a 'Enemy' layer.");
         }
     }
 }

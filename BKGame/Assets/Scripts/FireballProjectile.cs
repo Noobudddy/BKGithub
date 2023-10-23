@@ -10,11 +10,11 @@ public class FireballProjectile : MonoBehaviour
     private int playerLayer;
     private int mainCameraLayer;
     private int enemyLayer;
-    private Fireball fb;
 
     public GameObject fireballExplosion;
     public Rigidbody firerb;
     public float speed;
+    public int damage;
 
     private void Update()
     {
@@ -30,28 +30,35 @@ public class FireballProjectile : MonoBehaviour
         enemyLayer = LayerMask.NameToLayer("Enemy");
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        int otherLayer = collision.gameObject.layer;
+        int otherLayer = collider.gameObject.layer;
 
         if (otherLayer == fireballLayer || otherLayer == playerLayer || otherLayer == mainCameraLayer || collided)
         {
             return;
         }
 
-        if (collision.gameObject.TryGetComponent<EnemyMeleeStats>(out EnemyMeleeStats enemyComponent))
+        if (collider.gameObject != null)
         {
-            Debug.Log("Fireball damaged enemy!");
-            enemyComponent.TakeDamage(fb.damage);
-        }
+            EnemyMeleeStats enemyStats = collider.gameObject.GetComponent<EnemyMeleeStats>();
 
+            if (enemyStats != null)
+            {
+                Debug.Log("Fireball damaged enemy!");
+                enemyStats.TakeDamage(damage);
+                Destroy(gameObject);
+            }
+        }
+        
         if (fireballExplosion != null)
         {
-            var explosion = Instantiate(fireballExplosion, collision.transform.position, Quaternion.identity) as GameObject;
+            var explosion = Instantiate(fireballExplosion, collider.transform.position, Quaternion.identity) as GameObject;
             Destroy(explosion, 2);
         }
 
         Debug.Log("Fireball hit");
+        Debug.Log("Collision with: " + collider.gameObject.name);
 
         collided = true;
 
@@ -60,5 +67,5 @@ public class FireballProjectile : MonoBehaviour
             collided = false;
             Destroy(gameObject);
         }
-    }
+    }  
 }

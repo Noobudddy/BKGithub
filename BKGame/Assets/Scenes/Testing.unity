@@ -313,8 +313,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!136 &6626976
-CapsuleCollider:
+--- !u!65 &6626976
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -331,10 +331,8 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.49999997
-  m_Height: 1.9999999
-  m_Direction: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 1.9999999, z: 0.99999994}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &11076046
 GameObject:
@@ -3355,10 +3353,9 @@ MonoBehaviour:
   cam: {fileID: 89569863}
   projectile: {fileID: 2518053887149944861, guid: 5fd187bc5e69e49be8db957cb4898c67, type: 3}
   firePoint: {fileID: 2098527358}
-  fb: {fileID: 450417358}
+  fb: {fileID: -7346388050915144248, guid: 5fd187bc5e69e49be8db957cb4898c67, type: 3}
   CanAttack: 1
   isAttacking: 0
-  damage: 30
   projectileSpeed: 45
   fireballCooldown: 1.25
 --- !u!114 &450417359
