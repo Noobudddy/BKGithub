@@ -16,7 +16,7 @@ public class FireballProjectile : MonoBehaviour
     public float speed;
     public int damage;
 
-    private void Update()
+    private void Start()
     {
         firerb.AddForce(transform.forward * speed);
     }
