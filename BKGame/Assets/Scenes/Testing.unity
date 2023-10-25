@@ -3356,7 +3356,7 @@ MonoBehaviour:
   fb: {fileID: -7346388050915144248, guid: 5fd187bc5e69e49be8db957cb4898c67, type: 3}
   CanAttack: 1
   isAttacking: 0
-  projectileSpeed: 45
+  projectileSpeed: 30
   fireballCooldown: 1.25
 --- !u!114 &450417359
 MonoBehaviour:
