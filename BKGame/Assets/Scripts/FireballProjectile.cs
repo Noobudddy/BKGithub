@@ -4,21 +4,24 @@ using UnityEngine;
 
 public class FireballProjectile : MonoBehaviour
 {
-    private bool collided;
+    private bool collided = false;
 
     private int fireballLayer;
     private int playerLayer;
     private int mainCameraLayer;
     private int enemyLayer;
+    private Coroutine destroyCoroutine;
 
     public GameObject fireballExplosion;
     public Rigidbody firerb;
     public float speed;
     public int damage;
+    public float destructionTime = 5.0f;
 
     private void Start()
     {
         firerb.AddForce(transform.forward * speed);
+        destroyCoroutine = StartCoroutine(DestroyFireballAfterTime());
     }
 
     private void Awake()
@@ -60,6 +63,12 @@ public class FireballProjectile : MonoBehaviour
         Debug.Log("Fireball hit");
         Debug.Log("Collision with: " + collider.gameObject.name);
 
+        if(destroyCoroutine != null)
+        {
+            StopCoroutine(destroyCoroutine);
+            destroyCoroutine = null;
+        }
+
         collided = true;
 
         if (collided)
@@ -67,5 +76,14 @@ public class FireballProjectile : MonoBehaviour
             collided = false;
             Destroy(gameObject);
         }
-    }  
+    }
+    private IEnumerator DestroyFireballAfterTime()
+    {
+        yield return new WaitForSeconds(destructionTime);
+
+        if (!collided)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
