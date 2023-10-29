@@ -83,6 +83,7 @@ GameObject:
   - component: {fileID: 8951790004538964417}
   - component: {fileID: 1907187878101790842}
   - component: {fileID: 2234529982053414653}
+  - component: {fileID: 6502750369514037747}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -166,7 +167,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5911143264747669579}
   serializedVersion: 4
-  m_Mass: 2
+  m_Mass: 2.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -263,7 +264,7 @@ MonoBehaviour:
   player: {fileID: 3937351805334584982}
   whatIsGrappleable:
     serializedVersion: 2
-    m_Bits: 448
+    m_Bits: 384
   pm: {fileID: 8270748694294092622}
   orientation: {fileID: 2907710711216187592}
   rb: {fileID: 5003332597160147587}
@@ -288,7 +289,7 @@ MonoBehaviour:
   grappleTip: {fileID: 0}
   whatIsGrappable:
     serializedVersion: 2
-    m_Bits: 448
+    m_Bits: 384
   lr: {fileID: 0}
   maxGrapppleDistance: 50
   grappleDelayTime: 0.5
@@ -463,9 +464,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb157997d12446c1852263be0a22c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equipmentManager: {fileID: 6502750369514037747}
   Slot1: {fileID: 0}
   Slot2: {fileID: 0}
   Slot3: {fileID: 0}
+--- !u!114 &6502750369514037747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5911143264747669579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7482c2552dad17a468ff8563d3fb8858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grapplingScript: {fileID: 4893674724658250316}
+  swingingScript: {fileID: 7551124516343610177}
+  fireballScript: {fileID: 8951790004538964417}
+  meleeScript: {fileID: 0}
+  equipScript: {fileID: 2234529982053414653}
 --- !u!1 &6564715167594239312
 GameObject:
   m_ObjectHideFlags: 0

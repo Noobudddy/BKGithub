@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class EquippingScript : MonoBehaviour
 {
+    public PlayerEquipmentManager equipmentManager;
 
     public GameObject Slot1;
     public GameObject Slot2;
     public GameObject Slot3;
 
-    // Start is called before the first frame update
     void Start()
     {
         Equip0();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown("1"))
@@ -32,6 +31,11 @@ public class EquippingScript : MonoBehaviour
         {
             Equip3();
         }
+        
+        if (Input.GetKeyDown("0"))
+        {
+            Equip0();
+        }
     }
 
     void Equip0()
@@ -39,6 +43,11 @@ public class EquippingScript : MonoBehaviour
         Slot1.SetActive(false);
         Slot2.SetActive(false);
         Slot3.SetActive(false);
+
+        equipmentManager.DisableGrappling();
+        equipmentManager.DisableSwinging();
+        equipmentManager.DisableMelee();
+        equipmentManager.DisableFireball();
     }
 
     void Equip1()
@@ -46,6 +55,11 @@ public class EquippingScript : MonoBehaviour
         Slot1.SetActive(true);
         Slot2.SetActive(false);
         Slot3.SetActive(false);
+
+        equipmentManager.EnableGrappling();
+        equipmentManager.EnableSwinging();
+        equipmentManager.DisableMelee();
+        equipmentManager.DisableFireball();
     }
 
     void Equip2()
@@ -53,6 +67,11 @@ public class EquippingScript : MonoBehaviour
         Slot1.SetActive(false);
         Slot2.SetActive(true);
         Slot3.SetActive(false);
+
+        equipmentManager.DisableGrappling();
+        equipmentManager.DisableSwinging();
+        equipmentManager.EnableMelee();
+        equipmentManager.DisableFireball();
     }
 
     void Equip3()
@@ -60,5 +79,10 @@ public class EquippingScript : MonoBehaviour
         Slot1.SetActive(false);
         Slot2.SetActive(false);
         Slot3.SetActive(true);
+
+        equipmentManager.DisableGrappling();
+        equipmentManager.DisableSwinging();
+        equipmentManager.DisableMelee();
+        equipmentManager.EnableFireball();
     }
 }
