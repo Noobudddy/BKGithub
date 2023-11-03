@@ -83,9 +83,10 @@ GameObject:
   - component: {fileID: 8951790004538964417}
   - component: {fileID: 2234529982053414653}
   - component: {fileID: 6502750369514037747}
+  - component: {fileID: 2438690829159116385}
   m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -468,6 +469,19 @@ MonoBehaviour:
   fireballScript: {fileID: 8951790004538964417}
   meleeScript: {fileID: 8347660369453907739}
   equipScript: {fileID: 2234529982053414653}
+--- !u!114 &2438690829159116385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5911143264747669579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11fbc8b706f281e439641721828b22e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []
 --- !u!1 &6564715167594239312
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,7 +496,7 @@ GameObject:
   - component: {fileID: 5838062387860985075}
   m_Layer: 9
   m_Name: PlayerObj
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
