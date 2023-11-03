@@ -15,6 +15,18 @@ public class EquippingScript : MonoBehaviour
         Equip0();
     }
 
+    bool HasItem(string itemType)
+    {
+        foreach (Item item in Inventory.instance.items)
+        {
+            if (item.itemType == itemType)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown("1"))
@@ -31,10 +43,25 @@ public class EquippingScript : MonoBehaviour
         {
             Equip3();
         }
-        
+
         if (Input.GetKeyDown("0"))
         {
             Equip0();
+        }
+    }
+
+    void EquipItem(Item item)
+    {
+        switch (item.itemType)
+        {
+            case "Grappling":
+                break;
+            case "Swinging":
+                break;
+            case "Melee":
+                break;
+            case "Fireball":
+                break;
         }
     }
 
@@ -56,11 +83,41 @@ public class EquippingScript : MonoBehaviour
         Slot2.SetActive(false);
         Slot3.SetActive(false);
 
-        equipmentManager.EnableGrappling();
-        equipmentManager.EnableSwinging();
+        bool hasGrappling = false;
+        bool hasSwinging = false;
+
+        foreach (Item item in Inventory.instance.items)
+        {
+            if (item.itemType == "Utility")
+            {
+                hasGrappling = true;
+                hasSwinging = true;
+            }
+        }
+
+        // Enable or disable abilities based on the accumulated flags
+        if (hasGrappling)
+        {
+            equipmentManager.EnableGrappling();
+        }
+        else
+        {
+            equipmentManager.DisableGrappling();
+        }
+
+        if (hasSwinging)
+        {
+            equipmentManager.EnableSwinging();
+        }
+        else
+        {
+            equipmentManager.DisableSwinging();
+        }
+
         equipmentManager.DisableMelee();
         equipmentManager.DisableFireball();
     }
+
 
     void Equip2()
     {
@@ -68,9 +125,27 @@ public class EquippingScript : MonoBehaviour
         Slot2.SetActive(true);
         Slot3.SetActive(false);
 
+        bool hasMelee = false;
+
+        foreach (Item item in Inventory.instance.items)
+        {
+            if (item.itemType == "Melee")
+            {
+                hasMelee = true;
+            }
+        }
+
+        if (hasMelee)
+        {
+            equipmentManager.EnableMelee();
+        }
+        else
+        {
+            equipmentManager.DisableMelee();
+        }
+
         equipmentManager.DisableGrappling();
         equipmentManager.DisableSwinging();
-        equipmentManager.EnableMelee();
         equipmentManager.DisableFireball();
     }
 
@@ -80,9 +155,27 @@ public class EquippingScript : MonoBehaviour
         Slot2.SetActive(false);
         Slot3.SetActive(true);
 
+        bool hasFireball = false;
+
+        foreach (Item item in Inventory.instance.items)
+        {
+            if (item.itemType == "Projectile")
+            {
+                hasFireball = true;
+            }
+        }
+
+        if (hasFireball)
+        {
+            equipmentManager.EnableFireball();
+        }
+        else
+        {
+            equipmentManager.DisableFireball();
+        }
+
         equipmentManager.DisableGrappling();
         equipmentManager.DisableSwinging();
         equipmentManager.DisableMelee();
-        equipmentManager.EnableFireball();
     }
 }

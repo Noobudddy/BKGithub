@@ -4,32 +4,17 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    public GameObject BatOnPlayer;
-    //public GameObject GrappleOnPlayer;
-    //public GameObject FireballCardOnPlayer;
+    public string itemName = "Default Item";
+    public string itemType = "Default";
 
-    //public LayerMask playerLayer;
-
-    private void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        BatOnPlayer.SetActive(false);
-        //GrappleOnPlayer.SetActive(false);
-        //FireballCardOnPlayer.SetActive(false);
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            Debug.Log("Player layer was found");
-
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                Debug.Log("Player is trying to pick up item");
-                this.gameObject.SetActive(false);
-
-                BatOnPlayer.SetActive(true);
-            }
+            Debug.Log("Player collided with " + itemName);
+            Item newItem = new Item(itemName + " ", 1, itemType);
+            Inventory.instance.AddItem(newItem);
+            Destroy(gameObject);
         }
     }
 }
