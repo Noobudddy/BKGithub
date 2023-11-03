@@ -79,7 +79,6 @@ public class EquippingScript : MonoBehaviour
 
     void Equip1()
     {
-        Slot1.SetActive(true);
         Slot2.SetActive(false);
         Slot3.SetActive(false);
 
@@ -90,6 +89,7 @@ public class EquippingScript : MonoBehaviour
         {
             if (item.itemType == "Utility")
             {
+                Slot1.SetActive(true);
                 hasGrappling = true;
                 hasSwinging = true;
             }
@@ -122,7 +122,6 @@ public class EquippingScript : MonoBehaviour
     void Equip2()
     {
         Slot1.SetActive(false);
-        Slot2.SetActive(true);
         Slot3.SetActive(false);
 
         bool hasMelee = false;
@@ -131,6 +130,7 @@ public class EquippingScript : MonoBehaviour
         {
             if (item.itemType == "Melee")
             {
+                Slot2.SetActive(true);
                 hasMelee = true;
             }
         }
@@ -153,7 +153,6 @@ public class EquippingScript : MonoBehaviour
     {
         Slot1.SetActive(false);
         Slot2.SetActive(false);
-        Slot3.SetActive(true);
 
         bool hasFireball = false;
 
@@ -161,6 +160,7 @@ public class EquippingScript : MonoBehaviour
         {
             if (item.itemType == "Projectile")
             {
+                Slot3.SetActive(true);
                 hasFireball = true;
             }
         }
