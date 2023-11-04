@@ -43,15 +43,26 @@ public class NotificationTriggerEvent : MonoBehaviour
 
     IEnumerator EnableNotification()
     {
-        objectCollider.enabled = false;
-        notificationAnim.Play("NotificationPopUp");
         notificationTextUI.text = notificationMessage;
 
         if (disableAfterTimer)
         {
-            yield return new WaitForSeconds(disableTimer);
-            RemoveNotification();
+            notificationAnim.Play("NotificationPopUp");
+            Debug.Log("Start disable timer");
+            yield return new WaitForSeconds(1.0f);
         }
+    }
+
+    public void StartDisableTimer()
+    {
+        StartCoroutine(DisableNotificationAfterTimer());
+    }
+
+    IEnumerator DisableNotificationAfterTimer()
+    {
+        yield return new WaitForSeconds(disableTimer);
+        Debug.Log("Pop Up will now disappear");
+        RemoveNotification();
     }
 
     void RemoveNotification()
