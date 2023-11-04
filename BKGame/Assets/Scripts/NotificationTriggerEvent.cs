@@ -13,11 +13,10 @@ public class NotificationTriggerEvent : MonoBehaviour
 
     [Header("Notification Removal")]
     [SerializeField] private bool removeAfterExit = false;
-    [SerializeField] private bool disableAfterTimer = false;
-    [SerializeField] float disableTimer = 1.0f;
 
     [Header("Notification Animation")]
     [SerializeField] private Animator notificationAnim;
+    private bool notificationAnimationPlayed = false;
     private BoxCollider objectCollider;
 
     private void Awake()
@@ -25,44 +24,30 @@ public class NotificationTriggerEvent : MonoBehaviour
         objectCollider = gameObject.GetComponent<BoxCollider>();
     }
 
+    private void Update()
+    {
+        if (notificationAnimationPlayed)
+        {
+            if (Input.GetKeyUp(KeyCode.F))
+            {
+                RemoveNotification();
+            }
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            StartCoroutine(EnableNotification());
+            notificationAnimationPlayed = true;
+            EnableNotification();
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public void EnableNotification()
     {
-        if (other.CompareTag("Player") && removeAfterExit)
-        {
-            RemoveNotification();
-        }
-    }
-
-    IEnumerator EnableNotification()
-    {
+        notificationAnim.Play("NotificationPopUp");
         notificationTextUI.text = notificationMessage;
-
-        if (disableAfterTimer)
-        {
-            notificationAnim.Play("NotificationPopUp");
-            Debug.Log("Start disable timer");
-            yield return new WaitForSeconds(1.0f);
-        }
-    }
-
-    public void StartDisableTimer()
-    {
-        StartCoroutine(DisableNotificationAfterTimer());
-    }
-
-    IEnumerator DisableNotificationAfterTimer()
-    {
-        yield return new WaitForSeconds(disableTimer);
-        Debug.Log("Pop Up will now disappear");
-        RemoveNotification();
     }
 
     void RemoveNotification()
