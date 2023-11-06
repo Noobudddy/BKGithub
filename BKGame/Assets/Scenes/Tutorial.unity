@@ -3398,7 +3398,10 @@ MonoBehaviour:
   notificationTextUI: {fileID: 844032007}
   notificationMessage: 'Press 2 To Equip Bat
 
-    Left Click To Attack'
+    Left Click To Attack
+
+    (Press
+    F To Dismiss Message)'
   removeAfterExit: 1
   notificationAnim: {fileID: 823030103}
 --- !u!43 &1127034849
