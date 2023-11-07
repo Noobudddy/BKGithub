@@ -61,7 +61,7 @@ public class EnemyMeleeStats : MonoBehaviour
 
     public void InitVariables()
     {
-        maxHealth = 100;
+        maxHealth = 50;
         SetHealthTo(maxHealth);
         isDead = false;
 
