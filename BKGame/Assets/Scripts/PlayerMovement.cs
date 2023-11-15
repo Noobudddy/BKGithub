@@ -83,6 +83,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        Quaternion targetRotation = Quaternion.Euler(0f, 90f, 0f);
+        transform.rotation = targetRotation;
         
         readyToJump = true;
 
