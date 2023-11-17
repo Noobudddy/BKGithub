@@ -15,6 +15,8 @@ public class Grappling : MonoBehaviour
     public float maxGrapppleDistance;
     public float grappleDelayTime;
     public float overshootYAxis;
+    public AudioSource source;
+    public AudioClip clip;
 
     private Vector3 grapplePoint;
 
@@ -54,6 +56,7 @@ public class Grappling : MonoBehaviour
         GetComponent<Swinging>().StopSwing();
 
         grappling = true;
+        source.PlayOneShot(clip);
 
         pm.freeze = true;
 

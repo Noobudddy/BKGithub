@@ -17,6 +17,8 @@ public class Swinging : MonoBehaviour
     private float maxSwingDistance = 25f;
     private Vector3 swingPoint;
     private SpringJoint joint;
+    public AudioSource source;
+    public AudioClip clip;
 
     [Header("OdmGear")]
     public Transform orientation;
@@ -93,7 +95,7 @@ public class Swinging : MonoBehaviour
         GetComponent<Grappling>().StopGrapple();
         pm.ResetRestriction();
         pm.swinging = true;
-
+        source.PlayOneShot(clip);
 
         swingPoint = predictionHit.point;
         joint = player.gameObject.AddComponent<SpringJoint>();
