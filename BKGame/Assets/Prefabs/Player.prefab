@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: 2234529982053414653}
   - component: {fileID: 6502750369514037747}
   - component: {fileID: 2438690829159116385}
+  - component: {fileID: 5416449034008661252}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -267,6 +268,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 384
   pm: {fileID: 8270748694294092622}
+  source: {fileID: 0}
+  clip: {fileID: 0}
   orientation: {fileID: 2907710711216187592}
   rb: {fileID: 5003332597160147587}
   horizontalThrustForce: 4000
@@ -295,6 +298,8 @@ MonoBehaviour:
   maxGrapppleDistance: 50
   grappleDelayTime: 0.5
   overshootYAxis: 2
+  source: {fileID: 0}
+  clip: {fileID: 0}
   grapplingCd: 0.5
   grappleKey: 113
 --- !u!114 &5059822562743017253
@@ -482,6 +487,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
+--- !u!114 &5416449034008661252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5911143264747669579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4244b3438db2e46c0b898643410f3e71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6564715167594239312
 GameObject:
   m_ObjectHideFlags: 0
