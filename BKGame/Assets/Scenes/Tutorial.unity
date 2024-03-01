@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465788, g: 0.49641263, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -321,7 +321,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2575,6 +2575,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1219506653}
     m_Modifications:
+    - target: {fileID: 1587217205415645129, guid: ac10616b24cb2304f81f468058262034, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 5838599831971828672, guid: ac10616b24cb2304f81f468058262034, type: 3}
       propertyPath: m_LocalPosition.x
       value: 21.43
@@ -14900,6 +14904,10 @@ PrefabInstance:
       propertyPath: sprintSpeed
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 9165383033144998768, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 9180792177782065476, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
       propertyPath: notificationAnim
       value: 
@@ -17797,7 +17805,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -31703,6 +31711,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1219506653}
     m_Modifications:
+    - target: {fileID: 1587217205415645129, guid: ac10616b24cb2304f81f468058262034, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 5838599831971828672, guid: ac10616b24cb2304f81f468058262034, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16
@@ -31776,6 +31788,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fireball Card
       objectReference: {fileID: 0}
+    - target: {fileID: 5379752359655117612, guid: 139b67e7af1ef408eaca46d528f2e1df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 5387718070526521509, guid: 139b67e7af1ef408eaca46d528f2e1df, type: 3}
       propertyPath: m_LocalPosition.x
       value: -591.09
