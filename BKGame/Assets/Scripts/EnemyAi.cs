@@ -11,7 +11,7 @@ public class EnemyAi : MonoBehaviour
     private EnemyMeleeStats stats = null;
     private float timeOfLastAttack = 0;
     private bool hasStopped = false;
-    [SerializeField] private Transform player;
+    private Transform player;
     [SerializeField] private float stoppingDistance; 
 
     private void Start()
@@ -77,5 +77,6 @@ public class EnemyAi : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         //anim = GetComponentInChildren<Animator>();
         stats = GetComponent<EnemyMeleeStats>();
+        player = PlayerMovement.instance;
     }
 }
