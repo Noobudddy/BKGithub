@@ -31,7 +31,13 @@ public class EnemyMeleeStats : MonoBehaviour
 
     public void Die()
     {
+        isDead = true;
         Destroy(gameObject);
+    }
+
+    public bool IsDead()
+    {
+        return isDead;
     }
 
     public void SetHealthTo(int healthToSetTo)
