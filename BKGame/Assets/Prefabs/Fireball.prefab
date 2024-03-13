@@ -5043,7 +5043,8 @@ MonoBehaviour:
   fireballExplosion: {fileID: 2809293894348444592, guid: 29764341a516c7b48ad17f9745d4ec9c, type: 3}
   firerb: {fileID: -6175002004651621239}
   speed: 10
-  damage: 30
+  damage: 50
+  destructionTime: 5
 --- !u!65 &-4026709710627767066
 BoxCollider:
   m_ObjectHideFlags: 0
