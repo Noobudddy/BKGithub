@@ -4111,6 +4111,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2231504488493625867, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d01ba741c78a8d429ff2e731eecbd7e, type: 3}
     - target: {fileID: 3937351805334584982, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -13581,7 +13585,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1517222746935719312, guid: 139b67e7af1ef408eaca46d528f2e1df, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2901047429122052811, guid: 139b67e7af1ef408eaca46d528f2e1df, type: 3}
       propertyPath: m_Name
@@ -14256,7 +14260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7200295896135916617, guid: 0d471cd805ed14f84bae4ba913df61af, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17375,15 +17379,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: Wave 1
-    enemiesAmount: 5
+    enemiesAmount: 1
     delay: 1
     grunt: {fileID: 8775596757074929163, guid: ac10616b24cb2304f81f468058262034, type: 3}
   - name: Wave 2
-    enemiesAmount: 7
+    enemiesAmount: 1
     delay: 1
     grunt: {fileID: 8775596757074929163, guid: ac10616b24cb2304f81f468058262034, type: 3}
   - name: Wave 3
-    enemiesAmount: 10
+    enemiesAmount: 1
     delay: 1
     grunt: {fileID: 8775596757074929163, guid: ac10616b24cb2304f81f468058262034, type: 3}
   timeBetweenWaves: 3
@@ -17395,6 +17399,7 @@ MonoBehaviour:
   - {fileID: 296928863}
   - {fileID: 405307763}
   enemyList: []
+  deadEnemies: []
 --- !u!4 &1473802052
 Transform:
   m_ObjectHideFlags: 0
@@ -25810,6 +25815,10 @@ PrefabInstance:
     - target: {fileID: 6952664245546985566, guid: d9c474eaf90144056837e29502e84eca, type: 3}
       propertyPath: m_Name
       value: Grapple Hook
+      objectReference: {fileID: 0}
+    - target: {fileID: 8506181733565804416, guid: d9c474eaf90144056837e29502e84eca, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
