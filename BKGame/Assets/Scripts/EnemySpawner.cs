@@ -16,20 +16,22 @@ public class EnemySpawner : MonoBehaviour
     private SpawnState state = SpawnState.COUNTING;
 
     private int currentWave;
-     
+
+    private bool isSpawningWave = false;
+
     //References
     [SerializeField] private Transform[] spawners;
     [SerializeField] private List<EnemyMeleeStats> enemyList;
-    [SerializeField] private List<EnemyMeleeStats> deadEnemies;
 
 
     private void Start()
     {
         waveCountdown = timeBetweenWaves;
         currentWave = 0;
+        isSpawningWave = true;
     }
 
-    /*private void Update()
+    private void Update()
     {
         if(state == SpawnState.WAITING)
         {
@@ -48,43 +50,24 @@ public class EnemySpawner : MonoBehaviour
         }
         else
             waveCountdown -= Time.deltaTime;
-    }*/
-
-    private void Update()
-    {
-        if (state == SpawnState.WAITING)
-        {
-            if (enemyList.Count == 0) // Check if the enemy list is empty
-                CompleteWave();
-        }
-
-        if (state == SpawnState.COUNTING) // Add this condition
-        {
-            if (waveCountdown <= 0)
-            {
-                StartCoroutine(SpawnWave(waves[currentWave]));
-            }
-            else
-            {
-                waveCountdown -= Time.deltaTime;
-            }
-        }
     }
-
 
     private IEnumerator SpawnWave(Wave wave)
     {
         state = SpawnState.SPAWNING;
+        Debug.Log("Spawn State = " + state);
 
-        for(int i = 0; i < wave.enemiesAmount; i++)
+        for (int i = 0; i < wave.enemiesAmount; i++)
         {
+            if (!isSpawningWave)
+                yield break;
+
             SpawnMeleeGrunt(wave.grunt);
             yield return new WaitForSeconds(wave.delay);
         }
 
         state = SpawnState.WAITING;
-
-        yield break;
+        Debug.Log("Spawn State = " + state);
     }
 
     private void SpawnMeleeGrunt(GameObject grunt)
@@ -98,7 +81,7 @@ public class EnemySpawner : MonoBehaviour
         enemyList.Add(newGruntStats);
     }
 
-    /*private bool EnemiesAreDead()
+    private bool EnemiesAreDead()
     {
         int i = 0;
         foreach(EnemyMeleeStats grunt in enemyList)
@@ -109,39 +92,22 @@ public class EnemySpawner : MonoBehaviour
                 return false;
         }
         return true;
-    }*/
-
-    private void EnemiesAreDead()
-    {
-        // Iterate through the enemy list
-        foreach (EnemyMeleeStats grunt in enemyList)
-        {
-            // If an enemy is dead, add it to the deadEnemies list
-            if (grunt.IsDead())
-            {
-                deadEnemies.Add(grunt);
-            }
-        }
-
-        // Remove dead enemies from the main enemyList
-        foreach (EnemyMeleeStats deadEnemy in deadEnemies)
-        {
-            enemyList.Remove(deadEnemy);
-        }
     }
-
 
     private void CompleteWave()
     {
         Debug.Log("WAVE COMPLETED");
 
         state = SpawnState.COUNTING;
+        Debug.Log("Spawn State = " + state);
 
         waveCountdown = timeBetweenWaves;
 
-        if(currentWave + 1 > waves.Length - 1)
+        if (currentWave + 1 >= waves.Length)
         {
             currentWave = 0;
+            isSpawningWave = false; // Ensure spawning is stopped immediately
+            StopCoroutine(SpawnWave(waves[currentWave]));
             Debug.Log("Completed All The Waves");
         }
         else

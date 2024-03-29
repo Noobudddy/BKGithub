@@ -17379,15 +17379,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: Wave 1
-    enemiesAmount: 1
+    enemiesAmount: 5
     delay: 1
     grunt: {fileID: 8775596757074929163, guid: ac10616b24cb2304f81f468058262034, type: 3}
   - name: Wave 2
-    enemiesAmount: 1
+    enemiesAmount: 7
     delay: 1
     grunt: {fileID: 8775596757074929163, guid: ac10616b24cb2304f81f468058262034, type: 3}
   - name: Wave 3
-    enemiesAmount: 1
+    enemiesAmount: 10
     delay: 1
     grunt: {fileID: 8775596757074929163, guid: ac10616b24cb2304f81f468058262034, type: 3}
   timeBetweenWaves: 3
@@ -17399,7 +17399,6 @@ MonoBehaviour:
   - {fileID: 296928863}
   - {fileID: 405307763}
   enemyList: []
-  deadEnemies: []
 --- !u!4 &1473802052
 Transform:
   m_ObjectHideFlags: 0
