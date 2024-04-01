@@ -40,6 +40,7 @@ public class EnemyAi : MonoBehaviour
             if (!hasStopped)
             {
                 hasStopped = true;
+                Debug.Log("Enemy Stopping");
                 timeOfLastAttack = Time.time;
             }
  
@@ -48,6 +49,7 @@ public class EnemyAi : MonoBehaviour
                 timeOfLastAttack = Time.time;
                 PlayerStats playerStats = player.GetComponent<PlayerStats>();
                 AttackPlayer(playerStats);
+                Debug.Log("Attacking Player");
             }
         }
         else

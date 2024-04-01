@@ -9,6 +9,8 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField] protected bool isDead;
 
+    public GameManager gameManager;
+
     private void Start()
     {
         InitVariables();
@@ -30,6 +32,7 @@ public class PlayerStats : MonoBehaviour
     public virtual void Die()
     {
         isDead = true;
+        gameManager.gameOver();
     }
 
     public void SetHealthTo(int healthToSetTo)
