@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731716, g: 0.13414736, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4244,6 +4244,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 414463999380942869, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2231504488493625867, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -4288,6 +4292,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4208842737170822172, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.829505
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208842737170822172, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.34991544
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208842737170822172, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.2018225
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208842737170822172, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99557257
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208842737170822172, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.09163877
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208842737170822172, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.0019175741
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208842737170822172, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.020832712
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208842737170822172, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 10.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208842737170822172, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0.445
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208842737170822172, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -2.438
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900877661118339881, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5059822562743017253, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
       propertyPath: gameManager
       value: 
@@ -4296,10 +4344,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6302755842083796406, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.117
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302755842083796406, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7551124516343610177, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
       propertyPath: predictionPoint
       value: 
       objectReference: {fileID: 1827205834}
+    - target: {fileID: 7621190049716754768, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 21c0cd77fd02a462ebf4778c5fbfe19c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
