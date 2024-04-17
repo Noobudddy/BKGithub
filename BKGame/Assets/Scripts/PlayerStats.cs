@@ -32,6 +32,7 @@ public class PlayerStats : MonoBehaviour
     public virtual void Die()
     {
         isDead = true;
+        //gameObject.SetActive(false);
         gameManager.gameOver();
     }
 

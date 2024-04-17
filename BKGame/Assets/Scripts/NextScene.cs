@@ -11,7 +11,8 @@ public class NextScene : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(scenename);
+            //SceneManager.LoadScene(scenename);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }
