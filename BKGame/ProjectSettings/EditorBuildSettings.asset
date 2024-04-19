@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial.unity
     guid: 81af90d0bdd62cf4aa0594cffdad5116
   - enabled: 1
+    path: Assets/1 Tranistion stuff/1 Transition testing.unity
+    guid: ad73f210ad2974659854e0e9a016a81f
+  - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: dcd571da0bb3043fa8fe7b9c78e184e9
   m_configObjects: {}

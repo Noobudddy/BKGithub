@@ -11,8 +11,8 @@ public class NotificationTriggerEvent : MonoBehaviour
     [Header("MessageCustomization")]
     [SerializeField] [TextArea] private string notificationMessage;
 
-    //[Header("Notification Removal")]
-    //[SerializeField] private bool removeAfterExit = false;
+    [Header("Notification Removal")]
+    [SerializeField] private bool removeAfterExit = false;
 
     [Header("Notification Animation")]
     [SerializeField] private Animator notificationAnim;
