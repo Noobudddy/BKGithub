@@ -108,7 +108,7 @@ Transform:
   m_GameObject: {fileID: 1701435111855626657}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -335,7 +335,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5911143264747669579}
   serializedVersion: 4
-  m_Mass: 2.5
+  m_Mass: 2.25
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -367,7 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 12
-  sprintSpeed: 20
+  sprintSpeed: 45
   slideSpeed: 60
   swingSpeed: 60
   speedIncreaseMultiplier: 1.5
@@ -377,7 +377,7 @@ MonoBehaviour:
   jumpCooldown: 0.25
   airMultiplier: 0.4
   readyToJump: 0
-  crouchSpeed: 4
+  crouchSpeed: 2
   crouchYScale: 0.75
   jumpKey: 32
   sprintKey: 306
@@ -434,7 +434,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 384
   pm: {fileID: 8270748694294092622}
-  source: {fileID: 2231504488493625867}
+  source: {fileID: 0}
   clip: {fileID: 8300000, guid: 3a63d7ab849124a4281275548408e5ac, type: 3}
   orientation: {fileID: 2907710711216187592}
   rb: {fileID: 5003332597160147587}
@@ -464,7 +464,7 @@ MonoBehaviour:
   maxGrapppleDistance: 50
   grappleDelayTime: 0.5
   overshootYAxis: 2
-  source: {fileID: 2231504488493625867}
+  source: {fileID: 0}
   clip: {fileID: 8300000, guid: 3a63d7ab849124a4281275548408e5ac, type: 3}
   grapplingCd: 0.5
   grappleKey: 113
@@ -1299,6 +1299,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5003332597160147587}
     - target: {fileID: 8820376943032479640, guid: 5e33e4d28ec8e4d45a7c1a22b2d887ba, type: 3}
+      propertyPath: sensX
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8820376943032479640, guid: 5e33e4d28ec8e4d45a7c1a22b2d887ba, type: 3}
+      propertyPath: sensY
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8820376943032479640, guid: 5e33e4d28ec8e4d45a7c1a22b2d887ba, type: 3}
       propertyPath: orientation
       value: 
       objectReference: {fileID: 2907710711216187592}
@@ -1315,11 +1323,6 @@ PrefabInstance:
 --- !u!1 &414463999380942869 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4420394403164904443, guid: 5e33e4d28ec8e4d45a7c1a22b2d887ba, type: 3}
-  m_PrefabInstance: {fileID: 4078041922479664110}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &2231504488493625867 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 2769705008962673125, guid: 5e33e4d28ec8e4d45a7c1a22b2d887ba, type: 3}
   m_PrefabInstance: {fileID: 4078041922479664110}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2331030927101854784 stripped
