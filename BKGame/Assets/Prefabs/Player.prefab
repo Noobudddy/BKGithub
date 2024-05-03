@@ -249,7 +249,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1970
+  m_VersionIndex: 1973
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -447,7 +447,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7095051887755236695}
   - component: {fileID: 187825343094676122}
-  - component: {fileID: 5897679372915823717}
   m_Layer: 0
   m_Name: Minimap cam
   m_TagString: Untagged
@@ -521,14 +520,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &5897679372915823717
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1466980412127585928}
-  m_Enabled: 1
 --- !u!1 &1624795916597023665
 GameObject:
   m_ObjectHideFlags: 0
@@ -1315,7 +1306,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1270
+  m_VersionIndex: 1273
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2598,6 +2589,10 @@ PrefabInstance:
       value: -2.438
       objectReference: {fileID: 0}
     - target: {fileID: 2769705008962673125, guid: 5e33e4d28ec8e4d45a7c1a22b2d887ba, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2769705008962673125, guid: 5e33e4d28ec8e4d45a7c1a22b2d887ba, type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 8d01ba741c78a8d429ff2e731eecbd7e, type: 3}
@@ -2613,6 +2608,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 21c0cd77fd02a462ebf4778c5fbfe19c, type: 2}
+    - target: {fileID: 6329289889838188949, guid: 5e33e4d28ec8e4d45a7c1a22b2d887ba, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8065945344185278040, guid: 5e33e4d28ec8e4d45a7c1a22b2d887ba, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.117

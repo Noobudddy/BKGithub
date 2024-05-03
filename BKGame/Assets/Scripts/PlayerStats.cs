@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField] protected bool isDead;
 
-    public HealthBar healthBar;
+    //public HealthBar healthBar;
 
     public GameManager gameManager;
 
@@ -42,7 +42,7 @@ public class PlayerStats : MonoBehaviour
         health = healthToSetTo;
         CheckHealth();
 
-        healthBar.SetHealth(health);
+        //healthBar.SetHealth(health);
     }
 
     public virtual void TakeDamage(int damage)
@@ -50,7 +50,7 @@ public class PlayerStats : MonoBehaviour
         int healthAfterDamage = health - damage;
         SetHealthTo(healthAfterDamage);
 
-        healthBar.SetHealth(health);
+        //healthBar.SetHealth(health);
     }
 
     public void Heal(int heal)

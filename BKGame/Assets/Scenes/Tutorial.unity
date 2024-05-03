@@ -481,6 +481,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a4ef3a4bb77b504ca13a3385f8cf93b, type: 3}
+--- !u!82 &151138561 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2231504488493625867, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
+  m_PrefabInstance: {fileID: 1396479730}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &169174461
 GameObject:
   m_ObjectHideFlags: 0
@@ -6927,6 +6932,10 @@ PrefabInstance:
     - target: {fileID: 7306694442347798414, guid: da065ff1790a844d782f4a694a1fbe4b, type: 3}
       propertyPath: m_Name
       value: Death Screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 7306694442347798414, guid: da065ff1790a844d782f4a694a1fbe4b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27878,6 +27887,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1428412963}
+    - target: {fileID: 2231504488493625867, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2234529982053414653, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
       propertyPath: Slot1
       value: 
@@ -27941,7 +27954,7 @@ PrefabInstance:
     - target: {fileID: 4893674724658250316, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
       propertyPath: source
       value: 
-      objectReference: {fileID: 1067727787}
+      objectReference: {fileID: 151138561}
     - target: {fileID: 4893674724658250316, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
       propertyPath: grappleTip
       value: 
@@ -27973,7 +27986,7 @@ PrefabInstance:
     - target: {fileID: 7551124516343610177, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
       propertyPath: source
       value: 
-      objectReference: {fileID: 1067727787}
+      objectReference: {fileID: 151138561}
     - target: {fileID: 7551124516343610177, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
       propertyPath: grappleTip
       value: 
@@ -27986,6 +27999,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 21c0cd77fd02a462ebf4778c5fbfe19c, type: 2}
+    - target: {fileID: 8020411875186172539, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8270748694294092622, guid: ef17fca75ed24c449821f00afd6dd9a3, type: 3}
       propertyPath: jumpForce
       value: 12
@@ -37203,7 +37220,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1963264708}
   - component: {fileID: 1963264710}
-  - component: {fileID: 1963264709}
   m_Layer: 0
   m_Name: Minimap cam
   m_TagString: Untagged
@@ -37226,14 +37242,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1396479731}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!81 &1963264709
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963264707}
-  m_Enabled: 1
 --- !u!20 &1963264710
 Camera:
   m_ObjectHideFlags: 0
