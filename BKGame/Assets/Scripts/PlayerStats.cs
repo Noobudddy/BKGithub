@@ -13,6 +13,12 @@ public class PlayerStats : MonoBehaviour
 
     public GameManager gameManager;
 
+    public PlayerMovement playerMovement;
+    public Sliding sliding;
+    public Swinging swinging;
+    public Grappling grappling;
+    public PlayerCam playerCam;
+
     private void Start()
     {
         InitVariables();
@@ -35,6 +41,11 @@ public class PlayerStats : MonoBehaviour
     {
         isDead = true;
         gameManager.gameOver();
+        playerMovement.enabled = false;
+        sliding.enabled = false;
+        swinging.enabled = false;
+        grappling.enabled = false;
+        playerCam.enabled = false;
     }
 
     public void SetHealthTo(int healthToSetTo)
