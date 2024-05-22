@@ -16601,6 +16601,10 @@ PrefabInstance:
       value: Fireball Card
       objectReference: {fileID: 0}
     - target: {fileID: 2901047429122052811, guid: 139b67e7af1ef408eaca46d528f2e1df, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2901047429122052811, guid: 139b67e7af1ef408eaca46d528f2e1df, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -16691,6 +16695,10 @@ PrefabInstance:
     - target: {fileID: 5387718070526521509, guid: 139b67e7af1ef408eaca46d528f2e1df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -43.248
+      objectReference: {fileID: 0}
+    - target: {fileID: 6270077955885198595, guid: 139b67e7af1ef408eaca46d528f2e1df, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17358,6 +17366,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 413526747}
     m_Modifications:
+    - target: {fileID: 2591476091482086186, guid: 0d471cd805ed14f84bae4ba913df61af, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5839165986998074936, guid: 0d471cd805ed14f84bae4ba913df61af, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5000004
@@ -31550,6 +31562,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 413526747}
     m_Modifications:
+    - target: {fileID: 1278923140124921242, guid: d9c474eaf90144056837e29502e84eca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2242792323877886925, guid: d9c474eaf90144056837e29502e84eca, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.154038
@@ -31590,9 +31606,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 83.338
       objectReference: {fileID: 0}
+    - target: {fileID: 2470273667352089891, guid: d9c474eaf90144056837e29502e84eca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493809070325363605, guid: d9c474eaf90144056837e29502e84eca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5023426993131162755, guid: d9c474eaf90144056837e29502e84eca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6952664245546985566, guid: d9c474eaf90144056837e29502e84eca, type: 3}
       propertyPath: m_Name
       value: Grapple Hook
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952664245546985566, guid: d9c474eaf90144056837e29502e84eca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109100655413581875, guid: d9c474eaf90144056837e29502e84eca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174804104514758394, guid: d9c474eaf90144056837e29502e84eca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7867326935820663594, guid: d9c474eaf90144056837e29502e84eca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8506181733565804416, guid: d9c474eaf90144056837e29502e84eca, type: 3}
       propertyPath: m_Enabled

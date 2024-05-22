@@ -31,6 +31,8 @@ public class PickUp : MonoBehaviour
             {
                 itemCollider.enabled = false;
             }
+
+            gameObject.SetActive(false);
         }
     }
 }
