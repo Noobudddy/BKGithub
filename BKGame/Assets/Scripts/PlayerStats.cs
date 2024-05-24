@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -9,8 +10,6 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField] protected bool isDead;
 
-    //public HealthBar healthBar;
-
     public GameManager gameManager;
 
     public PlayerMovement playerMovement;
@@ -18,10 +17,16 @@ public class PlayerStats : MonoBehaviour
     public Swinging swinging;
     public Grappling grappling;
     public PlayerCam playerCam;
+    public Image healthBar;
 
     private void Start()
     {
         InitVariables();
+    }
+
+    private void Update()
+    {
+        healthBar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
     }
 
     public virtual void CheckHealth()
@@ -52,16 +57,12 @@ public class PlayerStats : MonoBehaviour
     {
         health = healthToSetTo;
         CheckHealth();
-
-        //healthBar.SetHealth(health);
     }
 
     public virtual void TakeDamage(int damage)
     {
         int healthAfterDamage = health - damage;
         SetHealthTo(healthAfterDamage);
-
-        //healthBar.SetHealth(health);
     }
 
     public void Heal(int heal)
