@@ -12,6 +12,7 @@ public class LavaDmg : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Player Fell in Lava");
             playerStats.TakeDamage(damage);
         }
 

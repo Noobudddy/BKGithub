@@ -10,6 +10,8 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField] protected bool isDead;
 
+    public HealthBar healthBar;
+
     public GameManager gameManager;
 
     public PlayerMovement playerMovement;
@@ -17,16 +19,10 @@ public class PlayerStats : MonoBehaviour
     public Swinging swinging;
     public Grappling grappling;
     public PlayerCam playerCam;
-    public Image healthBar;
 
     private void Start()
     {
         InitVariables();
-    }
-
-    private void Update()
-    {
-        healthBar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
     }
 
     public virtual void CheckHealth()
@@ -40,6 +36,7 @@ public class PlayerStats : MonoBehaviour
         {
             health = maxHealth;
         }
+        healthBar.SetHealth(health);
     }
 
     public virtual void Die()
@@ -76,6 +73,7 @@ public class PlayerStats : MonoBehaviour
         maxHealth = 100;
         SetHealthTo(maxHealth);
         isDead = false;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
 }
